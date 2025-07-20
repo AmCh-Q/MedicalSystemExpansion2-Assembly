@@ -198,7 +198,7 @@ namespace MSE2
             for ( int i = 0; i < this.SupportedVersions.Count; i++ )
             {
                 ProsthesisVersion version = this.SupportedVersions[i];
-                if ( version.LimbConfigurations.Exists( l => l.Bodies.Contains( pawn.RaceProps.body ) ) )
+                if ( version.LimbConfigurations.Exists( l => l?.Bodies is not null && l.Bodies.Contains( pawn.RaceProps.body ) ) )
                 {
                     count++;
                     value += this.MarketValueForVersion( version );
